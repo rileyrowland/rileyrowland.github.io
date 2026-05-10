@@ -117,6 +117,7 @@
       justify-content: center;
       padding: 4rem 2rem;
       position: relative;
+      overflow: hidden;
     }
 
     .hero-inner {
@@ -231,29 +232,30 @@
 
     .scroll-hint {
       position: absolute;
-      bottom: 2.5rem;
+      bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.4rem;
-      color: rgba(95,211,245,0.4);
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
+      color: rgba(95,211,245,0.45);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      animation: fadeInUp 2s ease forwards 1.5s;
+      pointer-events: none;
+      white-space: nowrap;
       opacity: 0;
+      animation: fadeInHint 1s ease forwards 2s;
     }
     .scroll-hint::after {
       content: '';
       width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, rgba(95,211,245,0.5), transparent);
-      animation: pulse 2s ease-in-out infinite;
+      height: 36px;
+      background: linear-gradient(to bottom, rgba(95,211,245,0.45), transparent);
     }
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateX(-50%) translateY(-6px); }
+    @keyframes fadeInHint {
+      to { opacity: 1; }
     }
 
     /* ── SECTION ── */
@@ -332,6 +334,7 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(to bottom, transparent 50%, rgba(7,21,37,0.9));
+      pointer-events: none;
     }
 
     .card-body { padding: 1.5rem 1.8rem 1.8rem; }
@@ -379,6 +382,8 @@
       border-bottom: 1px solid rgba(95,211,245,0.3);
       padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s, gap 0.2s;
+      position: relative;
+      z-index: 5;
     }
     .card-link:hover { color: var(--biolum); border-color: var(--biolum); gap: 0.8rem; }
     .card-link svg { transition: transform 0.2s; }

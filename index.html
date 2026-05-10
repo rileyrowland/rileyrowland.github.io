@@ -160,7 +160,7 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center 50%;
+      object-position: center 15%;
       border: 4px solid var(--deep);
       display: block;
     }
@@ -231,7 +231,7 @@
     }
 
     .scroll-hint {
-      position: absolute;
+      position: fixed;
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
@@ -246,7 +246,8 @@
       pointer-events: none;
       white-space: nowrap;
       opacity: 0;
-      animation: fadeInHint 1s ease forwards 2s;
+      z-index: 20;
+      animation: fadeInHint 1s ease forwards 2s, fadeOutHint 1s ease forwards 4s;
     }
     .scroll-hint::after {
       content: '';
@@ -256,6 +257,9 @@
     }
     @keyframes fadeInHint {
       to { opacity: 1; }
+    }
+    @keyframes fadeOutHint {
+      to { opacity: 0; }
     }
 
     /* ── SECTION ── */
@@ -583,8 +587,8 @@
         and Frontend Mentor challenges. 🌊
       </p>
     </div>
-    <div class="scroll-hint">dive in</div>
   </header>
+
 
   <!-- PROJECTS -->
   <section id="projects">
@@ -613,39 +617,7 @@
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="card fade-up" style="transition-delay:0.12s">
-        <div class="card-preview">
-          <iframe src="https://rileyrowland.github.io/firstFrontendChallenge/" title="Browser Extensions Manager UI" loading="lazy" scrolling="no"></iframe>
-          <div class="card-preview-overlay"></div>
-        </div>
-        <div class="card-body">
-          <span class="card-tag">🧩 Frontend Mentor</span>
-          <h3>Browser Extensions Manager UI</h3>
-          <p>A polished dashboard UI for managing browser extensions — filter by active/inactive status, toggle extensions on/off, and switch between light and dark mode.</p>
-          <a class="card-link" href="https://rileyrowland.github.io/firstFrontendChallenge/" target="_blank" rel="noopener">
-            View Live
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
-          </a>
-        </div>
-      </div>
 
-      <!-- Card 3 -->
-      <div class="card fade-up" style="transition-delay:0.24s">
-        <div class="card-preview">
-          <iframe src="https://rileyrowland.github.io/qr-code-component-project" title="QR Code Component" loading="lazy" scrolling="no"></iframe>
-          <div class="card-preview-overlay"></div>
-        </div>
-        <div class="card-body">
-          <span class="card-tag">📱 Frontend Mentor</span>
-          <h3>QR Code Component</h3>
-          <p>A clean, pixel-perfect QR code card component — one of the first Frontend Mentor challenges, focusing on HTML structure, CSS centering techniques, and responsive design fundamentals.</p>
-          <a class="card-link" href="https://rileyrowland.github.io/qr-code-component-project" target="_blank" rel="noopener">
-            View Live
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
-          </a>
-        </div>
-      </div>
 
     </div>
   </section>
